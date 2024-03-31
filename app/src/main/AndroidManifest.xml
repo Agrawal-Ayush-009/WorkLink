@@ -13,13 +13,13 @@
         android:theme="@style/Theme.WorkLink"
         tools:targetApi="31">
         <activity
-            android:name=".OnboardActivity"
+            android:name=".StartupProfile"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".WorkerProfile"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".FactoryOwnerProfile"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +27,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".OnboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
