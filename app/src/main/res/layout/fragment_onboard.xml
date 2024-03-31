@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OnboardFragment"
+    android:background="#CADAE9">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"
+        android:text="You are?"
+        android:fontFamily="@font/product_sans_bold"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/factory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/heading"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/button_option"
+        android:textColor="@drawable/button_text_option"
+        android:text="Factory Owner"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        android:fontFamily="@font/product_sans_regular"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/startup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/factory"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_option"
+        android:textColor="@drawable/button_text_option"
+        android:text="Startup"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        android:fontFamily="@font/product_sans_regular"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/worker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/startup"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_option"
+        android:textColor="@drawable/button_text_option"
+        android:text="Worker"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        android:fontFamily="@font/product_sans_regular"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/worker"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/register_button"
+        android:text="Get Started"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:paddingHorizontal="65dp"
+        android:fontFamily="@font/product_sans_bold"
+        android:textSize="16sp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:paddingVertical="10dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
