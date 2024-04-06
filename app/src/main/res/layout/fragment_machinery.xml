@@ -89,7 +89,18 @@
             android:singleLine="true"
             android:textSize="16sp"
             />
-
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:elevation="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/machine2Time"
+            app:layout_constraintBottom_toTopOf="@id/addMachine"
+            android:indeterminateTint="#0E4F90"
+            />
         <TextView
             android:id="@+id/machine2"
             android:layout_width="wrap_content"
@@ -148,7 +159,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/machine2Time"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="80dp"
             android:background="@drawable/register_button"
             android:text="+ Add Machine"
             android:textColor="@color/white"
@@ -167,7 +178,7 @@
             app:layout_constraintTop_toBottomOf="@id/addMachine"
             android:layout_marginTop="40dp"
             android:background="@drawable/register_button"
-            android:text="register"
+            android:text="Register"
             android:textColor="@color/white"
             android:textAllCaps="false"
             android:paddingHorizontal="65dp"
