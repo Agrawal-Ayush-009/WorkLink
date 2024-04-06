@@ -60,13 +60,14 @@
         style="@style/PinWidget.PinView"
         />
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/verifyOTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/otpInput"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/register_button"
-        android:text="Send OTP"
+        android:text="Verify OTP"
         android:fontFamily="@font/product_sans_bold"
         android:textColor="@color/white"
         android:textAllCaps="false"

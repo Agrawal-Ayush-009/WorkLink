@@ -46,7 +46,7 @@
         android:background="@drawable/edit_text"
         android:hint="rose@gmail.com"
         android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
+        android:paddingVertical="12dp"
         android:inputType="textEmailAddress"
         android:maxLines="1"
         android:singleLine="true"
@@ -94,6 +94,7 @@
             android:fontFamily="@font/product_sans_regular"
             android:paddingVertical="10dp"
             android:inputType="textPassword"
+            android:gravity="center|start"
             android:maxLines="1"
             android:singleLine="true"
             android:textSize="16sp"
@@ -101,11 +102,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputPassword"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/register_button"
         android:text="Log In"
         android:textColor="@color/white"
