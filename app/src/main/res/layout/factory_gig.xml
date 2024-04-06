@@ -43,7 +43,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:padding="10dp"
             android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/likeButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/like_logo"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                />
 
             <TextView
                 android:id="@+id/factoryName"
@@ -52,7 +64,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="JK Moulding Pvt. Ltd."
                 android:fontFamily="@font/product_sans_bold"
                 android:textSize="20sp"
@@ -72,15 +84,17 @@
                 />
             <TextView
                 android:id="@+id/skillRequired"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="65dp"
+                android:layout_marginRight="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/address"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/black"
                 android:text="Skills Required:- \n Plastic Moulding Machine Operator"
-                android:fontFamily="@font/product_sans_regular"
+                android:fontFamily="@font/product_sans_bold"
                 android:textSize="15sp"
                 />
             <TextView
@@ -88,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/time"
+                app:layout_constraintRight_toLeftOf="@id/limit"
                 app:layout_constraintTop_toBottomOf="@+id/skillRequired"
                 android:layout_marginTop="10dp"
                 android:textSize="15sp"
@@ -97,7 +111,7 @@
                 android:fontFamily="@font/product_sans_regular"
                 />
             <TextView
-                android:id="@+id/time"
+                android:id="@+id/limit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toRightOf="@id/pay"
@@ -106,7 +120,7 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:text="Time-9:00am - 6:00pm"
+                android:text="Vacancy: 200"
                 android:fontFamily="@font/product_sans_regular"
                 />
             <TextView
