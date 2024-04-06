@@ -2,6 +2,7 @@ package com.example.worklink.di
 
 import com.example.worklink.api.AuthInterceptor
 import com.example.worklink.api.LoginAPI
+import com.example.worklink.api.MainAPI
 import com.example.worklink.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -20,7 +21,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesRetrofitBuilder():Retrofit.Builder{
+    fun providesRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
@@ -38,8 +39,14 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesLoginAPI(retrofitBuilder: Builder): LoginAPI{
+    fun providesLoginAPI(retrofitBuilder: Builder): LoginAPI {
         return retrofitBuilder.build().create(LoginAPI::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun providesMainAPI(retrofitBuilder: Builder, okHttpClient: OkHttpClient): MainAPI {
+        return retrofitBuilder.client(okHttpClient).build().create(MainAPI::class.java)
     }
 
 
