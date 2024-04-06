@@ -15,6 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/rectangle_512"
         android:scaleType="centerCrop"
+        android:scaleX="-1"
         />
 
     <androidx.recyclerview.widget.RecyclerView
