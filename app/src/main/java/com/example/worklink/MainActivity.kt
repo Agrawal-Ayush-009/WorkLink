@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        var tabNames:List<String>
         val pp = findViewById<ImageView>(R.id.profile);
         pp.setOnClickListener {
             val role = tokenManager.getRole().toString()
@@ -48,7 +49,15 @@ class MainActivity : AppCompatActivity() {
 
 
         TabLayoutMediator(tabLayout, viewpager, TabLayoutMediator.TabConfigurationStrategy { tab, position ->
-            val tabNames = listOf("All", "NearYou", "Startup", "Workers")
+            val role = tokenManager.getRole().toString()
+            if(role=="Worker"){
+                tabNames=listOf("All","StartUp","Factory","Liked Gigs")
+            }else if(role=="Factory") {
+                tabNames = listOf("All", "StartUps", "Workers", "Your Gigs")
+            }else{
+                tabNames= listOf("All","Machines","Workers","Liked Gigs")
+            }
+            //val tabNames = listOf("All", "NearYou", "Startup", "Workers")
             tab.text = tabNames[position]
         }).attach()
     }

@@ -16,6 +16,11 @@ class LoginActivity : AppCompatActivity() {
     public var role : String = ""
     public var email: String = ""
     public var password: String = ""
+    public var factoryName:String=""
+    public var factoryWork:String=""
+    public var factoryCity:String=""
+    public var factoryState:String=""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
