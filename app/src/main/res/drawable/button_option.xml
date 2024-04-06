@@ -10,6 +10,7 @@
     <item android:state_pressed = "true">
         <shape android:shape = "rectangle">
             <corners android:radius="10dp"/>
+            <solid android:color = "#FFFFFF"/>
             <stroke android:color="@color/black" android:width="2dp"/>
         </shape>
     </item>
@@ -17,6 +18,7 @@
     <item android:state_focused= "true">
         <shape android:shape = "rectangle">
             <corners android:radius="10dp"/>
+            <solid android:color = "#FFFFFF"/>
             <stroke android:color="@color/black" android:width="2dp"/>
         </shape>
     </item>
@@ -24,6 +26,7 @@
     <item android:state_selected= "true">
         <shape android:shape = "rectangle">
             <corners android:radius="10dp"/>
+            <solid android:color = "#FFFFFF"/>
             <stroke android:color="@color/black" android:width="2dp"/>
         </shape>
     </item>

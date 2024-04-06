@@ -23,6 +23,21 @@
             android:textSize="25sp"
             android:textColor="@color/black"
             />
+
+        <TextView
+            android:id="@+id/machineTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heading"
+            android:text="Tip:You can change the avialability later from profile "
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/product_sans_regular"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            />
+
         <TextView
             android:id="@+id/emailHeading"
             android:layout_width="wrap_content"
@@ -34,7 +49,7 @@
             android:textColor="@color/black"
             android:fontFamily="@font/product_sans_bold"
             android:textSize="18sp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             />
         <EditText
             android:id="@+id/machine1Name"
@@ -65,7 +80,7 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_text"
-            android:hint="Set Time Period of Availability"
+            android:hint="Enter the Rent"
             android:paddingHorizontal="20dp"
             android:fontFamily="@font/product_sans_regular"
             android:paddingVertical="10dp"
@@ -73,15 +88,6 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textSize="16sp"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="@id/machine1Time"
-            app:layout_constraintTop_toTopOf="@id/machine1Time"
-            app:layout_constraintBottom_toBottomOf="@id/machine1Time"
-            android:src="@drawable/baseline_access_time_24"
-            android:layout_marginRight="10dp"
             />
 
         <TextView
@@ -126,7 +132,7 @@
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_text"
-            android:hint="Set Time Period of Availability"
+            android:hint="Enter the Rent"
             android:paddingHorizontal="20dp"
             android:fontFamily="@font/product_sans_regular"
             android:paddingVertical="10dp"
@@ -134,15 +140,6 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textSize="16sp"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="@id/machine2Time"
-            app:layout_constraintTop_toTopOf="@id/machine2Time"
-            app:layout_constraintBottom_toBottomOf="@id/machine2Time"
-            android:src="@drawable/baseline_access_time_24"
-            android:layout_marginRight="10dp"
             />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -163,13 +160,14 @@
             android:paddingVertical="10dp"
             />
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/addMachine"
             android:layout_marginTop="40dp"
             android:background="@drawable/register_button"
-            android:text="Submit"
+            android:text="register"
             android:textColor="@color/white"
             android:textAllCaps="false"
             android:paddingHorizontal="65dp"
