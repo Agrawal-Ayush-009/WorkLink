@@ -12,7 +12,7 @@
         android:id="@+id/greet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi, Ayush"
+        android:text="Hi, X-Mansion &amp; Co."
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="25dp"
