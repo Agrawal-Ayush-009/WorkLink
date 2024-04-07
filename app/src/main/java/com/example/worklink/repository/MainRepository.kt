@@ -66,8 +66,6 @@ class MainRepository @Inject constructor(private val api: MainAPI) {
         }
     }
 
-
-
     suspend fun getWorkerGig(){
         _workerGigLiveData.postValue(NetworkResult.Loading())
         val response = api.getGigsWorker()

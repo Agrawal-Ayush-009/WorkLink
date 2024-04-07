@@ -32,6 +32,7 @@ class MainViewModel @Inject constructor(private val repository: MainRepository):
         }
     }
 
+
     fun getWorkerGig(){
         viewModelScope.launch {
             repository.getWorkerGig()

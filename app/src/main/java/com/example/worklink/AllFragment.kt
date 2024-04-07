@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.GeneratedAdapter
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +17,6 @@ import com.example.worklink.adapters.WorkerGigRVAdapter
 import com.example.worklink.databinding.FragmentAllBinding
 import com.example.worklink.models.Gig
 import com.example.worklink.models.Location
-import com.example.worklink.models.WorkerGigsResponse
 import com.example.worklink.utils.NetworkResult
 import com.example.worklink.utils.TokenManager
 import com.example.worklink.viewModels.MainViewModel
@@ -28,9 +26,9 @@ import kotlin.math.log
 
 @AndroidEntryPoint
 class AllFragment : Fragment() {
+
     private var _binding: FragmentAllBinding? = null
     private val binding get() = _binding!!
-
     val viewModel by viewModels<MainViewModel>()
     lateinit var adapter: WorkerGigRVAdapter
 
@@ -47,6 +45,7 @@ class AllFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("Frag", tokenManager.getToken().toString())
+
         adapter = WorkerGigRVAdapter(
             requireContext(), listOf(
                 Gig(
@@ -64,10 +63,12 @@ class AllFragment : Fragment() {
     }
 
     fun bindObserver() {
+
         viewModel.workerGigLiveData.observe(viewLifecycleOwner, Observer {
             binding.progressBar.isVisible = false
             when (it) {
                 is NetworkResult.Success -> {
+
                     val role = tokenManager.getRole().toString()
                     val list = it.data!!.gigsToShow
 
@@ -79,6 +80,7 @@ class AllFragment : Fragment() {
                         recyclerView.adapter = adapter
                     }
 
+
                 }
 
                 is NetworkResult.Error -> {
@@ -88,7 +90,6 @@ class AllFragment : Fragment() {
                 is NetworkResult.Loading -> {
                     binding.progressBar.isVisible = true
                 }
-
                 else -> {}
             }
         })

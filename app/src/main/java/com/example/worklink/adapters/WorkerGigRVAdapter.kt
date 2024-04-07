@@ -16,6 +16,7 @@ import com.example.worklink.models.Location
 
 class WorkerGigRVAdapter(val context: Context, val list: List<Gig>) :
     RecyclerView.Adapter<WorkerGigRVAdapter.WorkerGigViewHolder>() {
+
     private val likedMap = mutableMapOf<Int, Boolean>()
 
 //    private var mListener: OnItemClickListener? = null
@@ -50,12 +51,14 @@ class WorkerGigRVAdapter(val context: Context, val list: List<Gig>) :
             append(location.state)
         }).toString()
         var skills: String = ""
+
         for(i in skillsRequired){
             skills += "$i, "
         }
         holder.binding.skillRequired.setText(skills).toString()
         holder.binding.pay.setText("$pay/month")
         holder.binding.limit.text = "Vacancy: $workerLimit"
+
 
 //        holder.itemView.setOnClickListener {
 //            holder.binding.likeButton.setImageResource(R.drawable.like_logo_filled)
@@ -70,5 +73,6 @@ class WorkerGigRVAdapter(val context: Context, val list: List<Gig>) :
                 holder.binding.likeButton.setImageResource(R.drawable.like_logo)
             }
         }
+
     }
 }
