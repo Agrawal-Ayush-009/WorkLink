@@ -86,6 +86,7 @@
                 android:id="@+id/skillRequired"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:layout_marginLeft="65dp"
                 android:layout_marginRight="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -96,6 +97,7 @@
                 android:text="Skills Required:- \n Plastic Moulding Machine Operator"
                 android:fontFamily="@font/product_sans_bold"
                 android:textSize="15sp"
+                android:background="@drawable/gig_text"
                 />
             <TextView
                 android:id="@+id/pay"
@@ -122,16 +124,6 @@
                 android:textSize="15sp"
                 android:text="Vacancy: 200"
                 android:fontFamily="@font/product_sans_regular"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="@id/pay"
-                app:layout_constraintTop_toBottomOf="@id/pay"
-                android:text="Need - Worker"
-                android:layout_marginTop="15dp"
-                android:textColor="#80000000"
-                android:fontFamily="@font/product_sans_bold"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

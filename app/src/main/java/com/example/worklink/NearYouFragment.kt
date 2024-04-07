@@ -5,55 +5,100 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.worklink.adapters.ManufacturerGigRVAdapter
+import com.example.worklink.adapters.WorkerGigRVAdapter
+import com.example.worklink.databinding.FragmentNearYouBinding
+import com.example.worklink.models.Gig
+import com.example.worklink.models.Location
+import com.example.worklink.models.ManufacturerGigResponse
+import com.example.worklink.utils.NetworkResult
+import com.example.worklink.utils.TokenManager
+import com.example.worklink.viewModels.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NearYouFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class NearYouFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentNearYouBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val binding get() = _binding!!
+
+    @Inject
+    lateinit var tokenManager: TokenManager
+
+    val viewmodel by viewModels<MainViewModel>()
+
+    lateinit var adapter: ManufacturerGigRVAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_near_you, container, false)
+        _binding = FragmentNearYouBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NearYouFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NearYouFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val role = tokenManager.getRole()
+
+        adapter = ManufacturerGigRVAdapter(
+            requireContext(), listOf(
+                Gig(
+                    69, "hi", listOf("ien"),
+                    "iwoen", "2od", Location("je", "2oen"),
+                    90, listOf("2eoifn"), 100
+                )
+            )
+        )
+
+        if (role == "Factory") {
+            viewmodel.getManufacturerGig()
+        }
+
+        bindObserver()
+    }
+
+    fun bindObserver() {
+        viewmodel.manuGigLiveData.observe(viewLifecycleOwner, Observer {
+            binding.progressBar.isVisible = false
+            when (it) {
+                is NetworkResult.Success -> {
+                    val role = tokenManager.getRole().toString()
+                    val list = it.data!!.gigs
+                    if(list.size == 0){
+                        binding.endListText.isVisible = true
+                    }else{
+                        binding.endListText.isVisible = false
+                        adapter = ManufacturerGigRVAdapter(requireContext(), list)
+                        val recyclerView = binding.recyclerView
+                        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                        recyclerView.adapter = adapter
+                    }
+
+
                 }
+
+                is NetworkResult.Error -> {
+                    Toast.makeText(activity as MainActivity, it.msg, Toast.LENGTH_SHORT).show()
+                }
+
+                is NetworkResult.Loading -> {
+                    binding.progressBar.isVisible = true
+                }
+
+                else -> {}
             }
+        })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
