@@ -4,10 +4,12 @@ import com.example.worklink.models.FactorySignUpResponse
 import com.example.worklink.models.FactorySignupRequest
 import com.example.worklink.models.StartupSignupRequest
 import com.example.worklink.models.StartupSignupResponse
+import com.example.worklink.models.ToggleMachineResponse
 import com.example.worklink.models.WorkerSignupRequest
 import com.example.worklink.models.WorkerSignupResponse
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface LoginAPI {
@@ -19,5 +21,9 @@ interface LoginAPI {
 
     @POST("/api/manufacturer/signup")
     suspend fun manufacturerSignup(@Body factorySignupRequest: FactorySignupRequest):Response<FactorySignUpResponse>
+
+    @POST("api/manufacturer/toggleMachineAvailability")
+    suspend fun isAvailable(@Header("Authorisation") @Body machineId:String):Response<ToggleMachineResponse>
+
 
 }

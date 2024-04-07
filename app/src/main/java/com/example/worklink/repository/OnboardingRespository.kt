@@ -8,6 +8,8 @@ import com.example.worklink.models.FactorySignUpResponse
 import com.example.worklink.models.FactorySignupRequest
 import com.example.worklink.models.StartupSignupRequest
 import com.example.worklink.models.StartupSignupResponse
+import com.example.worklink.models.ToggleMachineAvailability
+import com.example.worklink.models.ToggleMachineResponse
 import com.example.worklink.models.WorkerSignupRequest
 import com.example.worklink.models.WorkerSignupResponse
 import com.example.worklink.utils.NetworkResult
@@ -19,6 +21,8 @@ class OnboardingRespository @Inject constructor(private val api : LoginAPI){
     private val _signupResponseLiveData = MutableLiveData<NetworkResult<WorkerSignupResponse>>()
     private val _startupSignupResponseLiveData = MutableLiveData<NetworkResult<StartupSignupResponse>>()
     private val _factorySignupResponseLiveData = MutableLiveData<NetworkResult<FactorySignUpResponse>>()
+    private val _ToggleLiveData = MutableLiveData<NetworkResult<ToggleMachineResponse>>()
+
     val signupResponseLiveData :LiveData<NetworkResult<WorkerSignupResponse>>
         get() = _signupResponseLiveData
 
@@ -28,9 +32,8 @@ class OnboardingRespository @Inject constructor(private val api : LoginAPI){
     val factorySignupResponseLiveData :LiveData<NetworkResult<FactorySignUpResponse>>
         get() = _factorySignupResponseLiveData
 
-//    private val _workerSignupResponseLiveData = MutableLiveData<NetworkResult<StartupSignupResponse>>()
-//    val _workerSignupResponseLiveData :LiveData<NetworkResult<StartupSignupResponse>>
-//        get() = _workerSignupResponseLiveData
+    val ToggleLiveData: LiveData<NetworkResult<ToggleMachineResponse>>
+        get() = _ToggleLiveData
 
     suspend fun workerSignup(workerSignupRequest: WorkerSignupRequest){
         _signupResponseLiveData.postValue(NetworkResult.Loading())
@@ -73,4 +76,18 @@ class OnboardingRespository @Inject constructor(private val api : LoginAPI){
             _factorySignupResponseLiveData.postValue(NetworkResult.Error("Something went wrong"))
         }
     }
+
+//    suspend fun ToggleMachine(toggleMachineAvailability: ToggleMachineAvailability){
+//        _ToggleLiveData.postValue(NetworkResult.Loading())
+////        //val response=api.isAvailable()
+////        Log.d("TAG", response.body().toString())
+////        if (response.isSuccessful && response.body() != null) {
+////            _ToggleLiveData.postValue(NetworkResult.Success(response.body()))
+////        } else if (response.errorBody() != null) {
+////            val errObj = JSONObject(response.errorBody()!!.charStream().readText())
+//            _ToggleLiveData.postValue(NetworkResult.Error(errObj.getString("message")))
+//        } else {
+//            _ToggleLiveData.postValue(NetworkResult.Error("Something went wrong"))
+//        }
+  //  }
 }

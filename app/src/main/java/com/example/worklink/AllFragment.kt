@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.worklink.adapters.WorkerGigRVAdapter
 import com.example.worklink.databinding.FragmentAllBinding
 import com.example.worklink.utils.NetworkResult
@@ -25,6 +26,7 @@ import kotlin.math.log
 @AndroidEntryPoint
 class AllFragment : Fragment() {
     private var _binding : FragmentAllBinding? = null
+    private lateinit var swipeLayout:SwipeRefreshLayout
     private val binding get() = _binding!!
 
     val viewModel by viewModels<MainViewModel>()
@@ -46,7 +48,7 @@ class AllFragment : Fragment() {
         bindObserver()
     }
 
-    fun bindObserver(){
+    private fun bindObserver(){
         viewModel.workerGigLiveData.observe(viewLifecycleOwner, Observer {
             binding.progressBar.isVisible = false
             when (it) {
@@ -69,6 +71,7 @@ class AllFragment : Fragment() {
             }
         })
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

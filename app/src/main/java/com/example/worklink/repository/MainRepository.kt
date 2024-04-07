@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.worklink.api.MainAPI
+import com.example.worklink.models.ToggleMachineResponse
 import com.example.worklink.models.WorkerGigsResponse
 import com.example.worklink.utils.NetworkResult
 import org.json.JSONObject
@@ -12,7 +13,6 @@ import javax.inject.Inject
 class MainRepository @Inject constructor(private val api: MainAPI) {
     private val _workerGigLiveData = MutableLiveData<NetworkResult<WorkerGigsResponse>>()
     val workerGigLiveData: LiveData<NetworkResult<WorkerGigsResponse>> get() = _workerGigLiveData
-
     suspend fun getWorkerGig(){
         _workerGigLiveData.postValue(NetworkResult.Loading())
         val response = api.getGigsWorker()

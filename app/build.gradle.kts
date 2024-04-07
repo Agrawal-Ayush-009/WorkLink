@@ -60,4 +60,5 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.46")
     kapt("com.google.dagger:hilt-android-compiler:2.46")
     implementation ("com.google.code.gson:gson:2.10")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
