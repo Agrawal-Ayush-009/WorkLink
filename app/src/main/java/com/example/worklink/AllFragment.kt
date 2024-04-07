@@ -31,8 +31,6 @@ class AllFragment : Fragment() {
     private var _binding : FragmentAllBinding? = null
     private lateinit var swipeLayout:SwipeRefreshLayout
     private val binding get() = _binding!!
-    private var _binding: FragmentAllBinding? = null
-    private val binding get() = _binding!!
     val viewModel by viewModels<MainViewModel>()
     lateinit var adapter: WorkerGigRVAdapter
 
