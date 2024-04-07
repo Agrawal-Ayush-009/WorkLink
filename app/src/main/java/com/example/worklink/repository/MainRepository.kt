@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.worklink.api.MainAPI
+import com.example.worklink.models.ToggleMachineResponse
 import com.example.worklink.models.CreateGigRequest
 import com.example.worklink.models.CreateGigResponse
 import com.example.worklink.models.ManufacturerGigResponse
@@ -15,7 +16,6 @@ import javax.inject.Inject
 class MainRepository @Inject constructor(private val api: MainAPI) {
     private val _workerGigLiveData = MutableLiveData<NetworkResult<WorkerGigsResponse>>()
     val workerGigLiveData: LiveData<NetworkResult<WorkerGigsResponse>> get() = _workerGigLiveData
-
     private val _createGigLiveData = MutableLiveData<NetworkResult<CreateGigResponse>>()
     val createGigLiveData : LiveData<NetworkResult<CreateGigResponse>> get() = _createGigLiveData
 
@@ -65,6 +65,7 @@ class MainRepository @Inject constructor(private val api: MainAPI) {
             _createGigLiveData.postValue(NetworkResult.Error("Something went wrong"))
         }
     }
+
 
     suspend fun getWorkerGig(){
         _workerGigLiveData.postValue(NetworkResult.Loading())
