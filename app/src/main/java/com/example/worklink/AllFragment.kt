@@ -13,7 +13,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.worklink.adapters.WorkerGigRVAdapter
 import com.example.worklink.databinding.FragmentAllBinding
 import com.example.worklink.models.Gig
@@ -28,9 +27,6 @@ import kotlin.math.log
 @AndroidEntryPoint
 class AllFragment : Fragment() {
 
-    private var _binding : FragmentAllBinding? = null
-    private lateinit var swipeLayout:SwipeRefreshLayout
-    private val binding get() = _binding!!
     private var _binding: FragmentAllBinding? = null
     private val binding get() = _binding!!
     val viewModel by viewModels<MainViewModel>()

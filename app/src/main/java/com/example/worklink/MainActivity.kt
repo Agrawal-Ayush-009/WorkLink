@@ -3,6 +3,7 @@ package com.example.worklink
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import org.w3c.dom.Text
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -39,8 +41,10 @@ class MainActivity : AppCompatActivity() {
         }
         pp.setOnClickListener {
             if(role == "Worker"){
+                findViewById<TextView>(R.id.greet).setText("Hi, Ayush")
                 startActivity(Intent(this, WorkerProfile::class.java))
             }else if(role == "Factory"){
+                findViewById<TextView>(R.id.greet).setText("Hi, JK Moulding")
                 startActivity(Intent(this, FactoryOwnerProfile::class.java))
             }else{
                 startActivity(Intent(this, StartupProfile::class.java))
